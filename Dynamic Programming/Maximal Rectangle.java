@@ -40,6 +40,8 @@ public class Solution {
             res = Math.max(res, heights[stack.pop()] * (heights.length - stack.peek() -1));
         return res;
     }
+
+    public int maxRec(char[][] matrix)
 }
 
 
