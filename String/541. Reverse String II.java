@@ -66,4 +66,21 @@ class Solution {
             ch[end--] = temp;
         }
     }
+
+    public String reverStr(String s, int k) {
+        char[] ch = s.toCharArray();
+        for (int i = 0; i < s.length(); i += 2 * k) {
+            reverse(ch, i, i + k - 1);
+        }
+        return String.valueOf(ch);
+    }
+
+    private void (char[] ch, int start, int end) {
+        end = Math.min(end, ch.length - 1);
+        while (start < end) {
+            char temp = ch[start];
+            ch[start++] = ch[end];
+            ch[end--] = temp;
+        }
+    }
 }

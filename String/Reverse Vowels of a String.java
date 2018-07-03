@@ -105,4 +105,30 @@ class Solution {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+    static final String voewls = "aeiouAEIOU";
+    public String reverseVowe(String s) {
+        if (s == null || s.length() == 0) {
+            return "";
+        }
+        int left = 0;
+        int right = s.length() - 1;
+        char[] arr = s.toCharArray();
+        while (left < right) {
+            while (left < right && voewls.indexOf(arr[left]) == -1) {
+                left++;
+            }
+            while (left < right && vowels.indexOf(arr[right]) == -1) {
+                right--;
+            }
+            swap(arr, left++, right--);
+        }
+        return new String(arr);
+    }
+
+    public void swap(char[] arr, int i, int j) {
+        char temp = arr[j];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 }

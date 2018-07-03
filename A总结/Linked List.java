@@ -219,6 +219,21 @@
 		        secondHalf = reverse(secondHalf);// Using 1.1 reverse
 		        merge(head, secondHalf);//Using 3.1 merge Method
 		    }
+
+		    public void reorderList(ListNode head) {
+		    	if (head == null || head.next == null) {
+		    		return;
+		    	}
+		    	ListNode slow = head;
+		    	ListNode fast = head;
+		    	while (fast.next != null && fast.next.next != null) {
+		    		fast = fast.next.next;
+		    		slow = slow.next;
+		    	}
+		    	ListNode secondhald = slow.next;
+		    	slow.next = null;
+		    	secondHa
+		    }
 		}
 
 	2.6 Palindrome Linked List

@@ -61,6 +61,21 @@ public class Solution {
         }
         return res.toString().trim();
     }
+
+    public String reverWords(String s) {
+        StringBuilder res = new StringBuilder();
+        for (int start = s.length - 1; start >= 0; start--) {
+            if (s.charAt(start) == ' ') {
+                continue;
+            }
+            int end = start;
+            while (start >= 0 && s,charA(start) != ' ') {
+                start--;
+            }
+            res.append(s.substring(start + 1, end + 1)).append(' ');
+        }
+        return res.toString.trim();
+    }
 }
 
 

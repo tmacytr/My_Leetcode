@@ -82,6 +82,27 @@ public class Solution {
 		}
 		return newhead.next;
 	}
+
+	public ListNode insertSortLi(ListNode head) {
+		if (head == null || head.next == null) {
+			return head;
+		}
+
+		ListNode newhead = new ListNode(0);
+		ListNode cur = head;
+
+		while (cur != null) {
+			ListNode next = cur.next;
+			ListNode pre = newhead;
+			while (pre.next != null && pre.next.val < cur.val) {
+				pre = pre.next;
+			}
+			cur.next = pre.next;
+			pre.next = cur;
+			cur = next;
+		}
+		return newhead.next;
+	}
 }
 
 // Bubble Sort O(n*n), Microsoft interview question

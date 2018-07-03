@@ -53,6 +53,58 @@ public class Solution {
     		ptr.next = leftlist;
     	return newhead.next;
     }
+
+    public ListNode sorttList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode firsthalf = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode secondhalf = slow.next;
+        slow.next = null;
+
+        ListNode leftList = sortList(firsthalf);
+        ListNode  rightList = sortList(secondhalf);
+
+        return mergeLists(leftlist, rightlist);
+    }
+
+    public ListNode mergeLists(ListNode left, ListNode right) {
+        if (left == null) {
+            return right;
+        }
+        if (right == null) {
+            return left;
+        }
+        ListNode newNode = new ListNode(-1);
+        ListNode ptr = newhead;
+
+        while (rightlist != null && leftlist != null) {
+            if (rightlist.val < leftlist.val) {
+                ptr.next = rightlist;
+                ptr = ptr.next;
+                rightlist = rightlist.next;
+            } else {
+                ptr.next = leftlist;
+                ptr = ptr.next;
+                leftlist = leftlist.next;
+
+            }
+        }
+        if (rightlist != null) {
+            ptr.next = rightlist;
+        }
+        if (leftlist != null) {
+            ptr.next = leftlist;
+        }
+        return newhead.next;
+    }
 }
 
 
